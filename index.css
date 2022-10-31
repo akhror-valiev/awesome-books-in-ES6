@@ -21,6 +21,13 @@ header {
   margin: 0 0 0 1%;
 }
 
+#time {
+  position: absolute;
+  top: 130px;
+  right: 25px;
+  z-index: 999;
+}
+
 nav ul {
   display: flex;
   gap: 20px;
@@ -166,7 +173,7 @@ hr {
 
 .contact-section li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   font-size: 1.2rem;
   line-height: 1.5;

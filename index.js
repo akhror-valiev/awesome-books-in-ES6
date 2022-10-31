@@ -1,4 +1,5 @@
 import dataStorage from './modules/localstorage.js';
+import date from './modules/utils.js';
 
 const bookContainer = document.querySelector('.render-container');
 const addButton = document.querySelector('form');
@@ -29,7 +30,6 @@ class Books {
       authorInput.value = '';
     }
 
-    // Display Book
     static renderBook() {
       if (JSON.parse(localStorage.getItem('listOfbooks'))) {
         Books.listOfbooks = JSON.parse(localStorage.getItem('listOfbooks'));
@@ -137,3 +137,6 @@ document.getElementById('contact').addEventListener('click', () => {
 
 addBook.style.display = 'none';
 contact.style.display = 'none';
+
+const dateTime = document.getElementById('time');
+dateTime.innerText = date;
