@@ -6,8 +6,6 @@ const ListClick = document.getElementById('my-main');
 const FormClick = document.getElementById('my-form');
 const ContactClick = document.getElementById('my-contact');
 
-let counter = 0;
-
 class Books {
     static listOfbooks = [];
 
@@ -40,7 +38,9 @@ class Books {
 
       let list = '';
       Books.listOfbooks.forEach((book) => {
-        counter++;
+        let counter = 0;
+
+        counter += 1;
         if (counter % 2 === 0) {
           list += `
            <li class="book-even" id="${book.id}">
@@ -63,7 +63,6 @@ class Books {
             <button type="button" class="remove-btn">Remove</button>
            </li>
          `;
-          console.log(counter);
         }
       });
 
@@ -75,7 +74,7 @@ class Books {
           Books.listOfbooks = Books.listOfbooks.filter((book) => book.id !== bookId);
           Books.storage(Books.listOfbooks);
           e.target.parentElement.remove();
-          location.reload();
+          window.location.reload();
         });
       });
     }
@@ -95,7 +94,7 @@ addButton.addEventListener('submit', (e) => {
   } else {
     const newItem = new Books(id, title, author);
     newItem.addItem();
-    location.reload();
+    window.location.reload();
   }
 });
 
@@ -127,3 +126,4 @@ function NavClick(input) {
     document.getElementById('contact').style.color = 'blue';
   }
 }
+NavClick();
