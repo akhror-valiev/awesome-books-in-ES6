@@ -14,11 +14,11 @@
         <h3>Awesome Books</h3>
         <nav>
             <ul class="nav-link">
-                <li id="nav-link" onclick="NavClick('list')">List</li>
+                <li id="nav-link">List</li>
                 <hr />
-                <li class="add-new" onclick="NavClick('add-new')">Add new</li>
+                <li id="add-new" class="add-new">Add new</li>
                 <hr />
-                <li id="contact" onclick="NavClick('contact')">Contact</li>
+                <li id="contact">Contact</li>
             </ul>
         </nav>
     </header>
@@ -32,13 +32,18 @@
             </div>
         </section>
     </main>
-    <b id="errorMsg"></b>
+
     <form action="" class="form-none" id="my-form">
         <h2>Add a new book</h2>
+
         <input type="text" id="title" placeholder="Title" />
+
         <input type="text" id="author" placeholder="Author" />
+
         <button type="submit" id="add-button" class="Add-BTN">Add</button>
+        <b id="errorMsg"></b>
     </form>
+
     <section class="contact-section-none" id="my-contact">
         <h1>Contact Information</h1>
         <p>

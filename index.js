@@ -4,9 +4,9 @@ const bookContainer = document.querySelector('.render-container');
 const addButton = document.querySelector('form');
 const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
-const ListClick = document.getElementById('my-main');
-const FormClick = document.getElementById('my-form');
-const ContactClick = document.getElementById('my-contact');
+const allListBook = document.getElementById('my-main');
+const addBook = document.getElementById('my-form');
+const contact = document.getElementById('my-contact');
 
 let counter = 0;
 
@@ -99,29 +99,41 @@ window.onload = () => {
   Books.renderBook();
 };
 
-const NavClick = (input) => {
-  if (input === 'list') {
-    ListClick.className = 'main';
-    FormClick.className = 'form-none';
-    ContactClick.class = 'contact-section-none';
-    document.getElementById('nav-link').style.color = 'blue';
-    document.querySelector('.add-new').style.color = 'black';
-    document.getElementById('contact').style.color = 'black';
-  } else if (input === 'add-new') {
-    ListClick.class = 'main-list';
-    FormClick.class = 'form';
-    ContactClick.class = 'contact-section-none';
-    document.getElementById('nav-link').style.color = 'black';
-    document.querySelector('.add-new').style.color = 'blue';
-    document.getElementById('contact').style.color = 'black';
-  } else {
-    ListClick.className = 'main-list';
-    FormClick.className = 'form-none';
-    ContactClick.className = 'contact-section';
-    document.getElementById('nav-link').style.color = 'black';
-    document.querySelector('.add-new').style.color = 'black';
-    document.getElementById('contact').style.color = 'blue';
-  }
-};
+document.getElementById('add-new').addEventListener('click', () => {
+  allListBook.className = 'main-list';
+  addBook.className = 'form';
+  contact.className = 'contact-section-none';
+  document.getElementById('nav-link').style.color = 'black';
+  document.querySelector('.add-new').style.color = 'blue';
+  document.getElementById('contact').style.color = 'black';
+  addBook.style.display = 'flex';
+  contact.style.display = 'none';
+  allListBook.style.display = 'none';
+});
 
-NavClick();
+document.getElementById('nav-link').addEventListener('click', () => {
+  allListBook.className = 'main';
+  addBook.className = 'form-none';
+  contact.className = 'contact-section-none';
+  document.getElementById('nav-link').style.color = 'blue';
+  document.querySelector('.add-new').style.color = 'black';
+  document.getElementById('contact').style.color = 'black';
+  addBook.style.display = 'none';
+  contact.style.display = 'none';
+  allListBook.style.display = 'block';
+});
+
+document.getElementById('contact').addEventListener('click', () => {
+  allListBook.className = 'main-list';
+  addBook.className = 'form-none';
+  contact.className = 'contact-section';
+  document.getElementById('nav-link').style.color = 'black';
+  document.querySelector('.add-new').style.color = 'black';
+  document.getElementById('contact').style.color = 'blue';
+  addBook.style.display = 'none';
+  contact.style.display = 'block';
+  allListBook.style.display = 'none';
+});
+
+addBook.style.display = 'none';
+contact.style.display = 'none';
