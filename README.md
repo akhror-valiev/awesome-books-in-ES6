@@ -13,7 +13,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://akhror-valiev.github.io/micronauts-portfolio/)
+[Live Demo Link](https://akhror-valiev.github.io/awesome-books-in-ES6/)
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/akhror-valiev/micronauts-portfolio.git
+   git clone https://github.com/akhror-valiev/awesome-books-in-ES6.git
    ```
 2. Install NPM packages
    ```sh
