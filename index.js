@@ -1,3 +1,5 @@
+import dataStorage from './modules/localstorage.js';
+
 const bookContainer = document.querySelector('.render-container');
 const addButton = document.querySelector('form');
 const titleInput = document.getElementById('title');
@@ -5,6 +7,8 @@ const authorInput = document.getElementById('author');
 const ListClick = document.getElementById('my-main');
 const FormClick = document.getElementById('my-form');
 const ContactClick = document.getElementById('my-contact');
+
+let counter = 0;
 
 class Books {
     static listOfbooks = [];
@@ -17,14 +21,9 @@ class Books {
       this.author = author;
     }
 
-    // Data Storage
-    static storage(listOfbooks) {
-      localStorage.setItem('listOfbooks', JSON.stringify(listOfbooks));
-    }
-
     addItem() {
       Books.listOfbooks.push(this);
-      Books.storage(Books.listOfbooks);
+      dataStorage(Books.listOfbooks);
       Books.renderBook();
       titleInput.value = '';
       authorInput.value = '';
@@ -38,8 +37,6 @@ class Books {
 
       let list = '';
       Books.listOfbooks.forEach((book) => {
-        let counter = 0;
-
         counter += 1;
         if (counter % 2 === 0) {
           list += `
@@ -72,7 +69,7 @@ class Books {
         btn.addEventListener('click', (e) => {
           const bookId = e.target.parentElement.id;
           Books.listOfbooks = Books.listOfbooks.filter((book) => book.id !== bookId);
-          Books.storage(Books.listOfbooks);
+          dataStorage(Books.listOfbooks);
           e.target.parentElement.remove();
           window.location.reload();
         });
@@ -102,18 +99,18 @@ window.onload = () => {
   Books.renderBook();
 };
 
-function NavClick(input) {
+const NavClick = (input) => {
   if (input === 'list') {
     ListClick.className = 'main';
     FormClick.className = 'form-none';
-    ContactClick.className = 'contact-section-none';
+    ContactClick.class = 'contact-section-none';
     document.getElementById('nav-link').style.color = 'blue';
     document.querySelector('.add-new').style.color = 'black';
     document.getElementById('contact').style.color = 'black';
   } else if (input === 'add-new') {
-    ListClick.className = 'main-list';
-    FormClick.className = 'form';
-    ContactClick.className = 'contact-section-none';
+    ListClick.class = 'main-list';
+    FormClick.class = 'form';
+    ContactClick.class = 'contact-section-none';
     document.getElementById('nav-link').style.color = 'black';
     document.querySelector('.add-new').style.color = 'blue';
     document.getElementById('contact').style.color = 'black';
@@ -125,5 +122,6 @@ function NavClick(input) {
     document.querySelector('.add-new').style.color = 'black';
     document.getElementById('contact').style.color = 'blue';
   }
-}
+};
+
 NavClick();
